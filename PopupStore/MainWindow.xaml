@@ -12,6 +12,7 @@
                 <MenuItem Header="Magasin" Click="Store"/>
                 <MenuItem Header="Prix" Click="Price"/>
                 <MenuItem Header="Produits" Click="Product"/>
+                <MenuItem Header="Créer une vente"/>
                 <MenuItem Header="Résumé des ventes" Click="Sell"/>
             </Menu>
             <Frame x:Name="MainFrame" Width="Auto" Height="Auto" NavigationUIVisibility="Hidden"/>

@@ -36,6 +36,7 @@
                     <DataGrid.Columns>
                         <DataGridTextColumn Header="Produit" Binding="{Binding Product.Name}"/>
                         <DataGridTextColumn Header="Quantité" Binding="{Binding Quantity}"/>
+                        <DataGridTextColumn Header="Prix unitaire" Binding="{Binding Product.Price.Value}"/>
                     </DataGrid.Columns>
                 </DataGrid>
             </GroupBox>

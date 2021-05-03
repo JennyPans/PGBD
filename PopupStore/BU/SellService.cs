@@ -11,7 +11,7 @@ namespace PopupStore.BU
         {
             using (DAL.DB.PopupStoreContext db = new DAL.DB.PopupStoreContext())
             {
-                return db.Sells.Include(x => x.SellProductRels).ThenInclude(x => x.Product).ToList();
+                return db.Sells.Include(x => x.SellProductRels).ThenInclude(x => x.Product).ThenInclude(x => x.Price).ToList();
             }
         }
     }
