@@ -12,7 +12,7 @@ namespace PopupStore.BU
         {
             using (DAL.DB.PopupStoreContext db = new DAL.DB.PopupStoreContext())
             {
-                return db.Products.ToList();
+                return db.Products.Include("Price").ToList();
             }
         }
         public static DAL.DB.Product GetProductByLabel(string name)

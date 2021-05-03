@@ -34,12 +34,17 @@
                 </StackPanel>
             </GroupBox>
             <GroupBox Header="Produits" Margin="10" Padding="10" DockPanel.Dock="Right">
-                <DataGrid ItemsSource="{Binding Products}" AutoGenerateColumns="False" CanUserAddRows="False" ColumnWidth="*">
+                <DataGrid ItemsSource="{Binding Products}" 
+                          AutoGenerateColumns="False" 
+                          CanUserAddRows="False" 
+                          ColumnWidth="*" 
+                          IsReadOnly="True"
+                          HeadersVisibility="Column">
                     <DataGrid.Columns>
                         <DataGridTextColumn Header="Label" Binding="{Binding Label}"/>
                         <DataGridTextColumn Header="Nom" Binding="{Binding Name}"/>
                         <DataGridTextColumn Header="Quantité" Binding="{Binding Quantity}"/>
-                        <DataGridTextColumn Header="Prix" Binding="{Binding PriceId}"/>
+                        <DataGridTextColumn Header="Prix" Binding="{Binding Price.Value}"/>
                     </DataGrid.Columns>
                 </DataGrid>
             </GroupBox>

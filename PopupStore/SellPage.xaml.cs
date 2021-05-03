@@ -23,9 +23,14 @@ namespace PopupStore
         public SellPage()
         {
             InitializeComponent();
+            InitDataContext();
+        }
+
+        private void InitDataContext()
+        {
             sellViewModel = new SellViewModel
             {
-                Sells = BU.SellService.GetSells()
+                Sells = BU.SellService.GetSellsWithDetail()
             };
             this.DataContext = sellViewModel;
         }

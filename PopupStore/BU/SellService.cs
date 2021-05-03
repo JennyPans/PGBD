@@ -7,7 +7,7 @@ namespace PopupStore.BU
 {
     class SellService
     {
-        public static List<DAL.DB.Sell> GetSells()
+        public static List<DAL.DB.Sell> GetSellsWithDetail()
         {
             using (DAL.DB.PopupStoreContext db = new DAL.DB.PopupStoreContext())
             {
