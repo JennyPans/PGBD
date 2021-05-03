@@ -39,15 +39,20 @@ namespace PopupStore
 
         private void Create(object sender, RoutedEventArgs e)
         {
-            int correctPriceValue;
-            if (int.TryParse(priceValue.Text, out correctPriceValue))
+            try
             {
-                /*System.Windows.MessageBox.Show($"{priceValue.Text} n'est pas un nombre valide !");*/
+                int correctPriceValue;
+                if (!int.TryParse(priceValue.Text, out correctPriceValue))
+                    throw new Exception($"{priceValue.Text} n'est pas un nombre valide !");
                 DAL.DB.Price price = new DAL.DB.Price();
                 price.Value = correctPriceValue;
                 price.Color = priceColor.Background.ToString();
                 BU.PriceService.CreatePrice(price);
                 InitDataContext();
+            }
+            catch(Exception exception)
+            {
+                System.Windows.MessageBox.Show(exception.Message);
             }
         }
 
