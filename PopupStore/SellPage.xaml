@@ -13,6 +13,7 @@
             <GroupBox Header="Ventes" Margin="10" Padding="10" DockPanel.Dock="Top">
                 <DataGrid 
                   ItemsSource="{Binding Sells}"
+                  IsSynchronizedWithCurrentItem="True"
                   AutoGenerateColumns="False" 
                   CanUserAddRows="False" 
                   ColumnWidth="*"

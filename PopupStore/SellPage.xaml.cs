@@ -33,6 +33,7 @@ namespace PopupStore
                 Sells = BU.SellService.GetSellsWithDetail()
             };
             this.DataContext = sellViewModel;
+            Console.WriteLine(sellViewModel.Sells.Count);
         }
     }
 }
