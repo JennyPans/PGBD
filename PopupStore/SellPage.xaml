@@ -33,7 +33,7 @@
                           IsReadOnly="True"
                           HeadersVisibility="Column">
                     <DataGrid.Columns>
-                        <DataGridTextColumn Header="Produit" Binding="{Binding ProductId}"/>
+                        <DataGridTextColumn Header="Produit" Binding="{Binding Product.Name}"/>
                         <DataGridTextColumn Header="Quantité" Binding="{Binding Quantity}"/>
                     </DataGrid.Columns>
                 </DataGrid>
