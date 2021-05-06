@@ -20,7 +20,7 @@ namespace PopupStore.BU
         {
             using (DAL.DB.PopupStoreContext db = new DAL.DB.PopupStoreContext())
             {
-                return db.Prices.Find(id);
+                return db.Prices.Include("Products").Where(p => p.Id == id).SingleOrDefault();
             }
         }
 

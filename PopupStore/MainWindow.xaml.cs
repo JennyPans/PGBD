@@ -38,5 +38,9 @@ namespace PopupStore
         {
             MainFrame.Content = new SellPage();
         }
+        private void CreateSell(object sender, RoutedEventArgs e)
+        {
+            MainFrame.Content = new CreateSell();
+        }
     }
 }

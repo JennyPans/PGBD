@@ -4,7 +4,7 @@ using System.Text;
 
 namespace PopupStore.Enums
 {
-    enum PaymentMode
+    public enum PaymentMode
     {
         Card,
         Cash

@@ -62,7 +62,7 @@ namespace PopupStore
             {
                 int id = ((DAL.DB.Price)priceDataGrid.SelectedItem).Id;
                 DAL.DB.Price price = BU.PriceService.GetPrice(id);
-                if (price != null)
+                if (price.Products.Count > 0)
                     throw new Exception("Le prix est associé à au moins un produit !");
                 BU.PriceService.DeletePrice(price);
                 InitDataContext();
