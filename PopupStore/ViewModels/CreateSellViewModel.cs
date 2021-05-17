@@ -6,6 +6,7 @@ namespace PopupStore.ViewModels
 {
     class CreateSellViewModel
     {
-        //public PopupStore.Enums.PaymentMode PaymentMode { get; set; }
+        public List<DAL.DB.SellProductRel> SellProductRels { get; set; }
+        public DAL.DB.Sell Sell { get; set; }
     }
 }

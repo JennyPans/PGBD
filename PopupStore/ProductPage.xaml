@@ -34,7 +34,8 @@
                 </StackPanel>
             </GroupBox>
             <GroupBox Header="Produits" Margin="10" Padding="10" DockPanel.Dock="Right">
-                <DataGrid ItemsSource="{Binding Products}" 
+                <DataGrid 
+                          ItemsSource="{Binding Products}" 
                           AutoGenerateColumns="False" 
                           CanUserAddRows="False" 
                           ColumnWidth="*" 

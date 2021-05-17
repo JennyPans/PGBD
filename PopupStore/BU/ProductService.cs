@@ -19,10 +19,9 @@ namespace PopupStore.BU
         {
             using (DAL.DB.PopupStoreContext db = new DAL.DB.PopupStoreContext())
             {
-                return db.Products.SingleOrDefault(p => p.Label.ToUpper() == name.ToUpper());
+                return db.Products.Include("Price").SingleOrDefault(p => p.Label.ToUpper() == name.ToUpper());
             }
         }
-
         public static DAL.DB.Product GetProductByName(string name)
         {
             using (DAL.DB.PopupStoreContext db = new DAL.DB.PopupStoreContext())
@@ -30,7 +29,6 @@ namespace PopupStore.BU
                 return db.Products.SingleOrDefault(p => p.Name.ToUpper() == name.ToUpper());
             }
         }
-
         public static void CreateProduct(DAL.DB.Product product)
         {
             using (DAL.DB.PopupStoreContext db = new DAL.DB.PopupStoreContext())
@@ -40,7 +38,6 @@ namespace PopupStore.BU
                 db.SaveChanges();
             }
         }
-
         public static void DeleteProduct(DAL.DB.Product product)
         {
             using (DAL.DB.PopupStoreContext db = new DAL.DB.PopupStoreContext())
