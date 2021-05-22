@@ -55,7 +55,9 @@
                               HeadersVisibility="Column" 
                               CanUserAddRows="False" 
                               ColumnWidth="*"
-                              IsReadOnly="True">
+                              IsReadOnly="True"
+                              ScrollViewer.CanContentScroll="True" 
+                              ScrollViewer.VerticalScrollBarVisibility="Auto">
                             <DataGrid.Columns>
                                 <DataGridTextColumn Header="Produit" Binding="{Binding Product.Name}"/>
                                 <DataGridTextColumn Header="Quantité" Binding="{Binding Quantity}"/>

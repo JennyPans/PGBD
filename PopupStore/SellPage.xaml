@@ -27,7 +27,9 @@
                   CanUserAddRows="False" 
                   ColumnWidth="*"
                   HeadersVisibility="Column"
-                  IsReadOnly="True">
+                  IsReadOnly="True"
+                  ScrollViewer.CanContentScroll="True" 
+                  ScrollViewer.VerticalScrollBarVisibility="Auto">
                         <DataGrid.Columns>
                             <DataGridTextColumn Header="Date" Binding="{Binding Datetime}"/>
                             <DataGridTextColumn Header="Type de paiement" Binding="{Binding PaymentType}"/>
@@ -42,7 +44,9 @@
                           CanUserAddRows="False" 
                           ColumnWidth="*" 
                           IsReadOnly="True"
-                          HeadersVisibility="Column">
+                          HeadersVisibility="Column"
+                          ScrollViewer.CanContentScroll="True" 
+                          ScrollViewer.VerticalScrollBarVisibility="Auto">
                     <DataGrid.Columns>
                         <DataGridTextColumn Header="Produit" Binding="{Binding Product.Name}"/>
                         <DataGridTextColumn Header="Quantité" Binding="{Binding Quantity}"/>

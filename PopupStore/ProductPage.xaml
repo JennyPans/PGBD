@@ -42,7 +42,9 @@
                           CanUserAddRows="False" 
                           ColumnWidth="*" 
                           IsReadOnly="True"
-                          HeadersVisibility="Column">
+                          HeadersVisibility="Column"
+                          ScrollViewer.CanContentScroll="True" 
+                          ScrollViewer.VerticalScrollBarVisibility="Auto">
                     <DataGrid.Columns>
                         <DataGridTextColumn Header="Label" Binding="{Binding Label}"/>
                         <DataGridTextColumn Header="Nom" Binding="{Binding Name}"/>
