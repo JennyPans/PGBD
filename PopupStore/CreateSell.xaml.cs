@@ -1,6 +1,7 @@
 ﻿using PopupStore.ViewModels;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Diagnostics;
 using System.Text;
 using System.Text.RegularExpressions;
@@ -31,7 +32,7 @@ namespace PopupStore
         {
             createSellViewModel = new CreateSellViewModel
             {
-                SellProductRels = new List<DAL.DB.SellProductRel>(),
+                SellProductRels = new ObservableCollection<DAL.DB.SellProductRel>(),
                 Sell = new DAL.DB.Sell()
             };
             DataContext = createSellViewModel;
@@ -55,26 +56,38 @@ namespace PopupStore
                     throw new Exception($"Le produit {label.Text} n'existe pas !");
                 if (product.Quantity < correctQuantity)
                     throw new Exception($"La quantité demandée est supérieure au stock ! (En stock : {product.Quantity})");
-                /*if (paymentMode.SelectedIndex == -1)
-                    throw new Exception("Vous devez choisir un mode de paiement !");*/
                 DAL.DB.SellProductRel sellProductRel = new DAL.DB.SellProductRel();
                 sellProductRel.Product = product;
+                sellProductRel.ProductId = product.Id;
                 sellProductRel.Quantity = correctQuantity;
                 createSellViewModel.SellProductRels.Add(sellProductRel);
-                // si le produit se trouve dans la liste erreur
-                /*DAL.DB.Price idPrice = price.SelectedItem as DAL.DB.Price;
-                DAL.DB.Product product = new DAL.DB.Product();
-                product.Label = labelName.Text;
-                product.Name = name.Text;
-                product.Quantity = correctQuantity;
-                product.PriceId = idPrice.Id;
-                BU.ProductService.CreateProduct(product);*/
-                details.Items.Refresh();
+                createSellViewModel.calculTotal();
             }
             catch (Exception exception)
             {
                 System.Windows.MessageBox.Show(exception.Message);
             }
+        }
+
+        private void Sell(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                if (createSellViewModel.SellProductRels.Count == 0)
+                    throw new Exception("Il n'y a pas de produits indiqués !");
+                if (paymentMode.SelectedIndex == -1)
+                    throw new Exception("Vous devez choisir un mode de paiement !");
+                createSellViewModel.CreateSell(paymentMode.SelectedIndex);
+            }
+            catch (Exception exception)
+            {
+                System.Windows.MessageBox.Show(exception.Message);
+            }
+        }
+        private void Delete(object sender, RoutedEventArgs e)
+        {
+            DAL.DB.SellProductRel sellProductRel = (DAL.DB.SellProductRel)details.SelectedItem;
+            createSellViewModel.removeSellProductRel(sellProductRel);
         }
     }
 }

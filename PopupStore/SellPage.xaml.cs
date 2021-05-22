@@ -1,6 +1,7 @@
 ﻿using PopupStore.UI.ViewModels;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Text;
 using System.Windows;
 using System.Windows.Controls;
@@ -33,7 +34,15 @@ namespace PopupStore
                 Sells = BU.SellService.GetSellsWithDetail()
             };
             this.DataContext = sellViewModel;
-            Console.WriteLine(sellViewModel.Sells.Count);
+        }
+        private void Delete(object sender, RoutedEventArgs e)
+        {
+            if (sellDataGrid.SelectedItem != null)
+            {
+                int id = ((DAL.DB.Sell)sellDataGrid.SelectedItem).Id;
+                BU.SellService.DeleteSell(id);
+                InitDataContext();
+            }
         }
     }
 }

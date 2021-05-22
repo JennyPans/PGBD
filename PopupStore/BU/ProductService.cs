@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using System.Linq;
 using Microsoft.EntityFrameworkCore;
+using System.Diagnostics;
 
 namespace PopupStore.BU
 {
@@ -44,6 +45,32 @@ namespace PopupStore.BU
             {
                 db.Products.Remove(product);
                 db.SaveChanges();
+            }
+        }
+        public static void AddQuantity(int productId, int quantity)
+        {
+            using (DAL.DB.PopupStoreContext db = new DAL.DB.PopupStoreContext())
+            {
+                DAL.DB.Product product = db.Products.Find(productId);
+                if (product != null)
+                {
+                    product.Quantity += quantity;
+                    db.SaveChanges();
+                }
+            }
+        }
+        public static void RemoveQuantity(int productId, int quantity)
+        {
+            using (DAL.DB.PopupStoreContext db = new DAL.DB.PopupStoreContext())
+            {
+                DAL.DB.Product product = db.Products.Find(productId);
+                if (product != null)
+                {
+                    Debug.WriteLine(product.Quantity);
+                    product.Quantity -= quantity;
+                    Debug.WriteLine(product.Quantity);
+                    db.SaveChanges();
+                }
             }
         }
     }

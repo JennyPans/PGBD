@@ -17,52 +17,55 @@
     </Page.Resources>
     <Grid>
         <DockPanel>
-            <GroupBox Header="Ajouter un produit" Margin="10" Padding="10" DockPanel.Dock="Left">
-                <StackPanel>
-                    <StackPanel.Resources>
-                        <Style TargetType="{x:Type Button}">
-                            <Setter Property="Margin" Value="0,0,0,10"/>
-                            <Setter Property="Padding" Value="5,2,5,2"/>
-                        </Style>
-                        <Style TargetType="{x:Type TextBox}">
-                            <Setter Property="Margin" Value="0,0,0,10"/>
-                            <Setter Property="Padding" Value="5,2,5,2"/>
-                        </Style>
-                    </StackPanel.Resources>
-                    <Label Content="Label"/>
-                    <TextBox x:Name="label"/>
-                    <Label Content="Quantité"/>
-                    <TextBox x:Name="quantity"/>
-                    <ComboBox x:Name="paymentMode" ItemsSource="{Binding Source={StaticResource PaymentMode}}"/>
-                    <Button Click="Create">Ajouter produit</Button>
-                </StackPanel>
-            </GroupBox>
-            <GroupBox Header="Détail" Margin="10" Padding="10" DockPanel.Dock="Right">
-                <StackPanel>
-                    <WrapPanel>
-                        <WrapPanel.Resources>
+                <GroupBox Header="Ajouter un produit" Margin="10" Padding="10" DockPanel.Dock="Left">
+                    <StackPanel>
+                        <StackPanel.Resources>
                             <Style TargetType="{x:Type Button}">
-                                <Setter Property="Margin" Value="0,0,10,10"/>
+                                <Setter Property="Margin" Value="0,0,0,10"/>
                                 <Setter Property="Padding" Value="5,2,5,2"/>
                             </Style>
-                        </WrapPanel.Resources>
-                        <Button>Supprimer</Button>
-                    </WrapPanel>
-                    <DataGrid ItemsSource="{Binding SellProductRels}" 
+                            <Style TargetType="{x:Type TextBox}">
+                                <Setter Property="Margin" Value="0,0,0,10"/>
+                                <Setter Property="Padding" Value="5,2,5,2"/>
+                            </Style>
+                        </StackPanel.Resources>
+                        <Label Content="Label"/>
+                        <TextBox x:Name="label"/>
+                        <Label Content="Quantité"/>
+                        <TextBox x:Name="quantity"/>
+                        <Button Click="Create">Ajouter produit</Button>
+                    </StackPanel>
+                </GroupBox>
+                <GroupBox Header="Détail" Margin="10" Padding="10" DockPanel.Dock="Right">
+                    <StackPanel>
+                        <WrapPanel>
+                            <WrapPanel.Resources>
+                                <Style TargetType="{x:Type Button}">
+                                    <Setter Property="Margin" Value="0,0,10,10"/>
+                                    <Setter Property="Padding" Value="5,2,5,2"/>
+                                </Style>
+                            </WrapPanel.Resources>
+                        <Button Click="Sell">Créer la vente</Button>
+                        <Button Click="Delete">Supprimer</Button>
+                        <ComboBox x:Name="paymentMode" ItemsSource="{Binding Source={StaticResource PaymentMode}}"/>
+                        </WrapPanel>
+                        <DataGrid ItemsSource="{Binding SellProductRels}" 
                               x:Name="details"
                               AutoGenerateColumns="False" 
                               HeadersVisibility="Column" 
                               CanUserAddRows="False" 
                               ColumnWidth="*"
                               IsReadOnly="True">
-                        <DataGrid.Columns>
-                            <DataGridTextColumn Header="Produit" Binding="{Binding Product.Name}"/>
-                            <DataGridTextColumn Header="Quantité" Binding="{Binding Quantity}"/>
-                            <DataGridTextColumn Header="Prix unitaire" Binding="{Binding Product.Price.Value}"/>
-                        </DataGrid.Columns>
-                    </DataGrid>
+                            <DataGrid.Columns>
+                                <DataGridTextColumn Header="Produit" Binding="{Binding Product.Name}"/>
+                                <DataGridTextColumn Header="Quantité" Binding="{Binding Quantity}"/>
+                                <DataGridTextColumn Header="Prix unitaire" Binding="{Binding Product.Price.Value}"/>
+                            </DataGrid.Columns>
+                        </DataGrid>
+                    <Label Content="Total"/>
+                    <TextBlock x:Name="total" Text="{Binding Sell.AmountTotal, Mode=TwoWay, IsAsync=true}"/>
                 </StackPanel>
-            </GroupBox>
-        </DockPanel>
+                </GroupBox>
+            </DockPanel>
     </Grid>
 </Page>

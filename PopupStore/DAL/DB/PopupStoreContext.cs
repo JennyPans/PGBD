@@ -28,7 +28,7 @@ namespace PopupStore.DAL.DB
             if (!optionsBuilder.IsConfigured)
             {
 #warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?LinkId=723263.
-                optionsBuilder.UseSqlServer("Server=.\\SQLExpress;Database=PopupStore;Trusted_Connection=True;");
+                optionsBuilder.UseSqlServer("Server=.\\SQLEXPRESS;Database=PopupStore;Trusted_Connection=True;");
             }
         }
 
@@ -91,8 +91,7 @@ namespace PopupStore.DAL.DB
 
             modelBuilder.Entity<SellProductRel>(entity =>
             {
-                entity.HasKey(e => new { e.SellId, e.ProductId })
-                    .HasName("PK_sell_product_rel");
+                entity.HasKey(e => new { e.SellId, e.ProductId });
 
                 entity.ToTable("SellProductRel");
 

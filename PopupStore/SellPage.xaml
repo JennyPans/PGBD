@@ -10,8 +10,10 @@
 
     <Grid>
         <DockPanel>
+            <Button Click="Delete">Supprimer</Button>
             <GroupBox Header="Ventes" Margin="10" Padding="10" DockPanel.Dock="Top">
-                <DataGrid 
+                <DataGrid
+                  x:Name="sellDataGrid" 
                   ItemsSource="{Binding Sells}"
                   IsSynchronizedWithCurrentItem="True"
                   AutoGenerateColumns="False" 
