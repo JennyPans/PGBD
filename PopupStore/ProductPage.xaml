@@ -8,33 +8,35 @@
         Title="ProductPage">
     <Grid>
         <DockPanel>
-            <GroupBox Header="Créer un produit" Margin="10" Padding="10" DockPanel.Dock="Left">
-                <StackPanel>
-                    <StackPanel.Resources>
-                        <Style TargetType="{x:Type Button}">
-                            <Setter Property="Margin" Value="0,0,0,10"/>
-                            <Setter Property="Padding" Value="5,2,5,2"/>
-                        </Style>
-                    </StackPanel.Resources>
-                    <Label Content="Label"/>
-                    <TextBox x:Name="labelName"/>
-                    <Label Content="Nom"/>
-                    <TextBox x:Name="name"/>
-                    <Label Content="Quantité"/>
-                    <TextBox x:Name="quantity"/>
-                    <Label Content="Prix"/>
-                    <ListBox x:Name="price" ItemsSource="{Binding Prices}" Margin="6,2,6,50" MaxHeight="200"                          
+            <ScrollViewer>
+                <GroupBox Header="Créer un produit" Margin="10" Padding="10" DockPanel.Dock="Left">
+                    <StackPanel>
+                        <StackPanel.Resources>
+                            <Style TargetType="{x:Type Button}">
+                                <Setter Property="Margin" Value="0,0,0,10"/>
+                                <Setter Property="Padding" Value="5,2,5,2"/>
+                            </Style>
+                        </StackPanel.Resources>
+                        <Label Content="Label"/>
+                        <TextBox x:Name="labelName"/>
+                        <Label Content="Nom"/>
+                        <TextBox x:Name="name"/>
+                        <Label Content="Quantité"/>
+                        <TextBox x:Name="quantity"/>
+                        <Label Content="Prix"/>
+                        <ListBox x:Name="price" ItemsSource="{Binding Prices}" Margin="6,2,6,50" MaxHeight="200"                          
                                  ScrollViewer.CanContentScroll="True" 
                                  ScrollViewer.VerticalScrollBarVisibility="Auto">
-                        <ListBox.ItemTemplate>
-                            <DataTemplate>
-                                <TextBlock Text="{Binding Value}"/>
-                            </DataTemplate>
-                        </ListBox.ItemTemplate>
-                    </ListBox>
-                    <Button Click="Create">Créer</Button>
-                </StackPanel>
-            </GroupBox>
+                            <ListBox.ItemTemplate>
+                                <DataTemplate>
+                                    <TextBlock Text="{Binding Value}"/>
+                                </DataTemplate>
+                            </ListBox.ItemTemplate>
+                        </ListBox>
+                        <Button Click="Create">Créer</Button>
+                    </StackPanel>
+                </GroupBox>
+            </ScrollViewer>
             <GroupBox Header="Produits" Margin="10" Padding="10" DockPanel.Dock="Right">
                 <DockPanel>
                     <DockPanel.Resources>
