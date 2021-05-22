@@ -24,31 +24,28 @@
                 </StackPanel>
             </GroupBox>
             <GroupBox Header="Prix" Margin="10" Padding="10" DockPanel.Dock="Right">
-                <StackPanel>
-                    <WrapPanel>
-                        <WrapPanel.Resources>
-                            <Style TargetType="{x:Type Button}">
-                                <Setter Property="Margin" Value="0,0,10,10"/>
-                                <Setter Property="Padding" Value="5,2,5,2"/>
-                            </Style>
-                        </WrapPanel.Resources>
-                        <Button Click="Delete">Supprimer</Button>
-                    </WrapPanel>
+                <DockPanel>
+                    <DockPanel.Resources>
+                        <Style TargetType="{x:Type Button}">
+                            <Setter Property="Margin" Value="0,0,0,10"/>
+                            <Setter Property="Padding" Value="5,2,5,2"/>
+                        </Style>
+                    </DockPanel.Resources>
+                    <Button Click="Delete" DockPanel.Dock="Top" MaxWidth="100" HorizontalAlignment="Left">Supprimer</Button>
                     <DataGrid x:Name="priceDataGrid" 
+                              DockPanel.Dock="Bottom"
                               HeadersVisibility="Column" 
                               ItemsSource="{Binding Prices}" 
                               AutoGenerateColumns="False" 
                               CanUserAddRows="False" 
                               ColumnWidth="*"
-                              IsReadOnly="True"
-                              ScrollViewer.CanContentScroll="True" 
-                              ScrollViewer.VerticalScrollBarVisibility="Auto">
+                              IsReadOnly="True">
                         <DataGrid.Columns>
                             <DataGridTextColumn Header="Prix" Binding="{Binding Value}"/>
                             <DataGridTextColumn Header="Couleur" Binding="{Binding Color}"/>
                         </DataGrid.Columns>
                     </DataGrid>
-                </StackPanel>
+                </DockPanel>
             </GroupBox>
         </DockPanel>
     </Grid>

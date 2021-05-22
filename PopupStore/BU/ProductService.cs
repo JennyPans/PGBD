@@ -39,14 +39,6 @@ namespace PopupStore.BU
                 db.SaveChanges();
             }
         }
-        public static void DeleteProduct(DAL.DB.Product product)
-        {
-            using (DAL.DB.PopupStoreContext db = new DAL.DB.PopupStoreContext())
-            {
-                db.Products.Remove(product);
-                db.SaveChanges();
-            }
-        }
         public static void AddQuantity(int productId, int quantity)
         {
             using (DAL.DB.PopupStoreContext db = new DAL.DB.PopupStoreContext())
@@ -69,6 +61,18 @@ namespace PopupStore.BU
                     Debug.WriteLine(product.Quantity);
                     product.Quantity -= quantity;
                     Debug.WriteLine(product.Quantity);
+                    db.SaveChanges();
+                }
+            }
+        }
+        public static void DeleteProduct(int productId)
+        {
+            using (DAL.DB.PopupStoreContext db = new DAL.DB.PopupStoreContext())
+            {
+                DAL.DB.Product product = db.Products.Find(productId);
+                if (product != null)
+                {
+                    db.Products.Remove(product);
                     db.SaveChanges();
                 }
             }

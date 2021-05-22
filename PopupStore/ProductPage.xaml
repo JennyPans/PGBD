@@ -8,35 +8,44 @@
         Title="ProductPage">
     <Grid>
         <DockPanel>
-            <ScrollViewer VerticalScrollBarVisibility="Auto">
-                <GroupBox Header="Créer un produit" Margin="10" Padding="10" DockPanel.Dock="Left">
-                    <StackPanel>
-                        <StackPanel.Resources>
-                            <Style TargetType="{x:Type Button}">
-                                <Setter Property="Margin" Value="0,0,0,10"/>
-                                <Setter Property="Padding" Value="5,2,5,2"/>
-                            </Style>
-                        </StackPanel.Resources>
-                        <Label Content="Label"/>
-                        <TextBox x:Name="labelName"/>
-                        <Label Content="Nom"/>
-                        <TextBox x:Name="name"/>
-                        <Label Content="Quantité"/>
-                        <TextBox x:Name="quantity"/>
-                        <Label Content="Prix"/>
-                        <ListBox x:Name="price" ItemsSource="{Binding Prices}" Margin="6,2,6,50">
-                            <ListBox.ItemTemplate>
-                                <DataTemplate>
-                                    <TextBlock Text="{Binding Value}"/>
-                                </DataTemplate>
-                            </ListBox.ItemTemplate>
-                        </ListBox>
-                        <Button Click="Create">Créer</Button>
-                    </StackPanel>
-                </GroupBox>
-            </ScrollViewer>
+            <GroupBox Header="Créer un produit" Margin="10" Padding="10" DockPanel.Dock="Left">
+                <StackPanel>
+                    <StackPanel.Resources>
+                        <Style TargetType="{x:Type Button}">
+                            <Setter Property="Margin" Value="0,0,0,10"/>
+                            <Setter Property="Padding" Value="5,2,5,2"/>
+                        </Style>
+                    </StackPanel.Resources>
+                    <Label Content="Label"/>
+                    <TextBox x:Name="labelName"/>
+                    <Label Content="Nom"/>
+                    <TextBox x:Name="name"/>
+                    <Label Content="Quantité"/>
+                    <TextBox x:Name="quantity"/>
+                    <Label Content="Prix"/>
+                    <ListBox x:Name="price" ItemsSource="{Binding Prices}" Margin="6,2,6,50" MaxHeight="200"                          
+                                 ScrollViewer.CanContentScroll="True" 
+                                 ScrollViewer.VerticalScrollBarVisibility="Auto">
+                        <ListBox.ItemTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding Value}"/>
+                            </DataTemplate>
+                        </ListBox.ItemTemplate>
+                    </ListBox>
+                    <Button Click="Create">Créer</Button>
+                </StackPanel>
+            </GroupBox>
             <GroupBox Header="Produits" Margin="10" Padding="10" DockPanel.Dock="Right">
-                <DataGrid 
+                <DockPanel>
+                    <DockPanel.Resources>
+                        <Style TargetType="{x:Type Button}">
+                            <Setter Property="Margin" Value="0,0,0,10"/>
+                            <Setter Property="Padding" Value="5,2,5,2"/>
+                        </Style>
+                    </DockPanel.Resources>
+                    <Button Click="Delete" DockPanel.Dock="Top" MaxWidth="100" HorizontalAlignment="Left">Supprimer</Button>
+                    <DataGrid 
+                        x:Name="productDataGrid"
                           ItemsSource="{Binding Products}" 
                           AutoGenerateColumns="False" 
                           CanUserAddRows="False" 
@@ -45,13 +54,14 @@
                           HeadersVisibility="Column"
                           ScrollViewer.CanContentScroll="True" 
                           ScrollViewer.VerticalScrollBarVisibility="Auto">
-                    <DataGrid.Columns>
-                        <DataGridTextColumn Header="Label" Binding="{Binding Label}"/>
-                        <DataGridTextColumn Header="Nom" Binding="{Binding Name}"/>
-                        <DataGridTextColumn Header="Quantité" Binding="{Binding Quantity}"/>
-                        <DataGridTextColumn Header="Prix" Binding="{Binding Price.Value}"/>
-                    </DataGrid.Columns>
-                </DataGrid>
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="Label" Binding="{Binding Label}"/>
+                            <DataGridTextColumn Header="Nom" Binding="{Binding Name}"/>
+                            <DataGridTextColumn Header="Quantité" Binding="{Binding Quantity}"/>
+                            <DataGridTextColumn Header="Prix" Binding="{Binding Price.Value}"/>
+                        </DataGrid.Columns>
+                    </DataGrid>
+                </DockPanel>
             </GroupBox>
         </DockPanel>
     </Grid>

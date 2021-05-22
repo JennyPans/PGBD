@@ -66,5 +66,14 @@ namespace PopupStore
                 System.Windows.MessageBox.Show(exception.Message);
             }
         }
+        private void Delete(object sender, RoutedEventArgs e)
+        {
+            if (productDataGrid.SelectedItem != null)
+            {
+                int id = ((DAL.DB.Product)productDataGrid.SelectedItem).Id;
+                BU.ProductService.DeleteProduct(id);
+                InitDataContext();
+            }
+        }
     }
 }
