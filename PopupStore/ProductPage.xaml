@@ -45,7 +45,16 @@
                             <Setter Property="Padding" Value="5,2,5,2"/>
                         </Style>
                     </DockPanel.Resources>
-                    <Button Click="Delete" DockPanel.Dock="Top" MaxWidth="100" HorizontalAlignment="Left">Supprimer</Button>
+                    <WrapPanel DockPanel.Dock="Top">
+                        <WrapPanel.Resources>
+                            <Style TargetType="{x:Type Button}">
+                                <Setter Property="Margin" Value="0,0,5,10"/>
+                                <Setter Property="Padding" Value="5,2,5,2"/>
+                            </Style>
+                        </WrapPanel.Resources>
+                        <Button Click="Delete" MaxWidth="100">Supprimer</Button>
+                        <Button Click="Edit" MaxWidth="100">Editer</Button>
+                    </WrapPanel>
                     <DataGrid 
                         x:Name="productDataGrid"
                           ItemsSource="{Binding Products}" 

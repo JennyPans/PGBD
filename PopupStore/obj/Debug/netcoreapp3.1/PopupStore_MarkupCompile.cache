@@ -10,11 +10,11 @@ none
 false
 TRACE;DEBUG;NETCOREAPP;NETCOREAPP3_1
 C:\Users\jenny\source\repos\PopupStore\PopupStore\App.xaml
-62085997029
+8-1295656453
 
-26-1334379616
+30-121774286
 220204478967
-CreateSell.xaml;MainWindow.xaml;PricePage.xaml;ProductPage.xaml;SellPage.xaml;StorePage.xaml;
+CreateSell.xaml;EditPrice.xaml;EditProduct.xaml;MainWindow.xaml;PricePage.xaml;ProductPage.xaml;SellPage.xaml;StorePage.xaml;
 
 False
 

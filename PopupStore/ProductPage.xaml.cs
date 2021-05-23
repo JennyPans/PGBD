@@ -1,6 +1,7 @@
 ﻿using PopupStore.UI.ViewModels;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Text;
 using System.Windows;
 using System.Windows.Controls;
@@ -73,6 +74,14 @@ namespace PopupStore
                 int id = ((DAL.DB.Product)productDataGrid.SelectedItem).Id;
                 BU.ProductService.DeleteProduct(id);
                 InitDataContext();
+            }
+        }
+        private void Edit(object sender, RoutedEventArgs e)
+        {
+            if (productDataGrid.SelectedItem != null)
+            {
+                EditProduct editProduct = new EditProduct(((DAL.DB.Product)productDataGrid.SelectedItem).Id);
+                editProduct.Show();
             }
         }
     }

@@ -1,6 +1,7 @@
 ﻿using PopupStore.UI.ViewModels;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Windows;
@@ -44,6 +45,10 @@ namespace PopupStore
                 int correctPriceValue;
                 if (!int.TryParse(priceValue.Text, out correctPriceValue))
                     throw new Exception($"{priceValue.Text} n'est pas un nombre valide !");
+                if (BU.PriceService.GetPriceByValue(correctPriceValue) != null)
+                    throw new Exception("Un prix avec cette valeur existe déjà !");
+                if (BU.PriceService.GetPriceByColor(priceColor.Background.ToString()) != null)
+                    throw new Exception("Un prix avec cette couleur existe déjà !");
                 DAL.DB.Price price = new DAL.DB.Price();
                 price.Value = correctPriceValue;
                 price.Color = priceColor.Background.ToString();
@@ -72,7 +77,14 @@ namespace PopupStore
                 System.Windows.MessageBox.Show(exception.Message);
             }
         }
-
+        private void Edit(object sender, RoutedEventArgs e)
+        {
+            if (priceDataGrid.SelectedItem != null)
+            {
+                EditPrice editPrice = new EditPrice(((DAL.DB.Price)priceDataGrid.SelectedItem).Id);
+                editPrice.Show();
+            }
+        }
         private void PickColor(object sender, RoutedEventArgs e)
         {
             ColorDialog colorDialog = new ColorDialog();

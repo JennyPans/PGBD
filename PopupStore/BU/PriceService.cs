@@ -23,6 +23,20 @@ namespace PopupStore.BU
                 return db.Prices.Include("Products").Where(p => p.Id == id).SingleOrDefault();
             }
         }
+        public static DAL.DB.Price GetPriceByValue(int value)
+        {
+            using (DAL.DB.PopupStoreContext db = new DAL.DB.PopupStoreContext())
+            {
+                return db.Prices.Where(p => p.Value == value).SingleOrDefault();
+            }
+        }
+        public static DAL.DB.Price GetPriceByColor(string color)
+        {
+            using (DAL.DB.PopupStoreContext db = new DAL.DB.PopupStoreContext())
+            {
+                return db.Prices.Where(p => p.Color == color).SingleOrDefault();
+            }
+        }
 
         public static void CreatePrice(DAL.DB.Price price)
         {
@@ -39,6 +53,19 @@ namespace PopupStore.BU
             {
                 db.Prices.Remove(price);
                 db.SaveChanges();
+            }
+        }
+        public static void UpdatePrice(int id, int value, string color)
+        {
+            using (DAL.DB.PopupStoreContext db = new DAL.DB.PopupStoreContext())
+            {
+                DAL.DB.Price price = db.Prices.Find(id);
+                if (price != null)
+                {
+                    price.Value = value;
+                    price.Color = color;
+                    db.SaveChanges();
+                }
             }
         }
     }

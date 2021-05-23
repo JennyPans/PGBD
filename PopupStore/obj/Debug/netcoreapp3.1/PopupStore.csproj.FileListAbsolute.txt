@@ -68,3 +68,7 @@ C:\Users\jenny\source\repos\PopupStore\PopupStore\obj\Debug\netcoreapp3.1\SellPa
 C:\Users\jenny\source\repos\PopupStore\PopupStore\obj\Debug\netcoreapp3.1\CreateSell.g.cs
 C:\Users\jenny\source\repos\PopupStore\PopupStore\obj\Debug\netcoreapp3.1\CreateSell.baml
 C:\Users\jenny\source\repos\PopupStore\PopupStore\obj\Debug\netcoreapp3.1\GeneratedInternalTypeHelper.g.cs
+C:\Users\jenny\source\repos\PopupStore\PopupStore\obj\Debug\netcoreapp3.1\EditPrice.g.cs
+C:\Users\jenny\source\repos\PopupStore\PopupStore\obj\Debug\netcoreapp3.1\EditPrice.baml
+C:\Users\jenny\source\repos\PopupStore\PopupStore\obj\Debug\netcoreapp3.1\EditProduct.g.cs
+C:\Users\jenny\source\repos\PopupStore\PopupStore\obj\Debug\netcoreapp3.1\EditProduct.baml

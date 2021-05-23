@@ -1,13 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.ComponentModel;
 using System.Text;
 
-namespace PopupStore.UI.ViewModels
+namespace PopupStore.ViewModels
 {
-    class PriceViewModel
+    class EditPriceViewModel
     {
+        public DAL.DB.Price Price { get; set; }
         public List<DAL.DB.Price> Prices { get; set; }
     }
 }

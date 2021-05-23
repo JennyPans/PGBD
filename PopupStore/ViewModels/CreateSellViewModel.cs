@@ -4,6 +4,8 @@ using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Diagnostics;
 using System.Text;
+using System.Linq;
+using Microsoft.EntityFrameworkCore;
 
 namespace PopupStore.ViewModels
 {
@@ -52,6 +54,10 @@ namespace PopupStore.ViewModels
                 item.SellId = Sell.Id;
             }
             BU.SellService.CreateSellProductRels(SellProductRels);
+        }
+        public bool canAddProductInSell(int productId)
+        {
+            return SellProductRels.Where(s => s.ProductId == productId).SingleOrDefault() == null;
         }
     }
 }

@@ -56,6 +56,8 @@ namespace PopupStore
                     throw new Exception($"Le produit {label.Text} n'existe pas !");
                 if (product.Quantity < correctQuantity)
                     throw new Exception($"La quantité demandée est supérieure au stock ! (En stock : {product.Quantity})");
+                if (!createSellViewModel.canAddProductInSell(product.Id))
+                    throw new Exception("Le produit est déjà dans la liste !");
                 DAL.DB.SellProductRel sellProductRel = new DAL.DB.SellProductRel();
                 sellProductRel.Product = product;
                 sellProductRel.ProductId = product.Id;
