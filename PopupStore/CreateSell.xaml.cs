@@ -80,6 +80,7 @@ namespace PopupStore
                 if (paymentMode.SelectedIndex == -1)
                     throw new Exception("Vous devez choisir un mode de paiement !");
                 createSellViewModel.CreateSell(paymentMode.SelectedIndex);
+                InitDataContext();
             }
             catch (Exception exception)
             {
