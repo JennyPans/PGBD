@@ -70,6 +70,13 @@
                             <DataGridTextColumn Header="Nom" Binding="{Binding Name}"/>
                             <DataGridTextColumn Header="Quantité" Binding="{Binding Quantity}"/>
                             <DataGridTextColumn Header="Prix" Binding="{Binding Price.Value}"/>
+                            <DataGridTemplateColumn >
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <Rectangle Width="20" Height="20" Fill="{Binding Price.Color, Mode=TwoWay, IsAsync=true}"/>
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+                            </DataGridTemplateColumn>
                         </DataGrid.Columns>
                     </DataGrid>
                 </DockPanel>

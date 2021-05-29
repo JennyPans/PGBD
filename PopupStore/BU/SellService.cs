@@ -8,8 +8,15 @@ using System.Diagnostics;
 
 namespace PopupStore.BU
 {
+    /// <summary>
+    /// Service utilisé pour la vente de produits
+    /// </summary>
     class SellService
     {
+        /// <summary>
+        /// Obtenir toutes les ventes avec leurs détails : prix, produit
+        /// </summary>
+        /// <returns>Liste des ventes</returns>
         public static List<DAL.DB.Sell> GetSellsWithDetail()
         {
             using (DAL.DB.PopupStoreContext db = new DAL.DB.PopupStoreContext())
@@ -17,6 +24,10 @@ namespace PopupStore.BU
                 return db.Sells.Include(x => x.SellProductRels).ThenInclude(x => x.Product).ThenInclude(x => x.Price).ToList();
             }
         }
+        /// <summary>
+        /// Créer une vente
+        /// </summary>
+        /// <param name="sell">La vente à créer</param>
         public static void CreateSell(DAL.DB.Sell sell)
         {
             using (DAL.DB.PopupStoreContext db = new DAL.DB.PopupStoreContext())
@@ -25,6 +36,10 @@ namespace PopupStore.BU
                 db.SaveChanges();
             }
         }
+        /// <summary>
+        /// Créer le détail d'une vente
+        /// </summary>
+        /// <param name="sellProductRels">Les lignes de détails</param>
         public static void CreateSellProductRels(ObservableCollection<DAL.DB.SellProductRel> sellProductRels)
         {
             using (DAL.DB.PopupStoreContext db = new DAL.DB.PopupStoreContext())
@@ -40,6 +55,10 @@ namespace PopupStore.BU
                 db.SaveChanges();
             }
         }
+        /// <summary>
+        /// Supprimer une vente et son détail
+        /// </summary>
+        /// <param name="sellId">L'id de la vente</param>
         public static void DeleteSell(int sellId)
         {
             using (DAL.DB.PopupStoreContext db = new DAL.DB.PopupStoreContext())
@@ -53,6 +72,11 @@ namespace PopupStore.BU
                 }
             }
         }
+        /// <summary>
+        /// Supprimer le détail d'une vente
+        /// On fait attention à remettre les produits dans le stock
+        /// </summary>
+        /// <param name="sellId">L'id de la vente</param>
         public static void DeleteSellProductRels(int sellId)
         {
             using (DAL.DB.PopupStoreContext db = new DAL.DB.PopupStoreContext())

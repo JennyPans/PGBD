@@ -20,6 +20,7 @@ namespace PopupStore
         public MainWindow()
         {
             InitializeComponent();
+            MainFrame.Content = new StorePage();
         }
 
         private void Price(object sender, RoutedEventArgs e)

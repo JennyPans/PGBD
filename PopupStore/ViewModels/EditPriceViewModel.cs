@@ -4,6 +4,9 @@ using System.Text;
 
 namespace PopupStore.ViewModels
 {
+    /// <summary>
+    /// ViewModel pour l'édition d'un prix
+    /// </summary>
     class EditPriceViewModel
     {
         public DAL.DB.Price Price { get; set; }

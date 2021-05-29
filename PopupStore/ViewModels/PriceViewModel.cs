@@ -6,6 +6,9 @@ using System.Text;
 
 namespace PopupStore.UI.ViewModels
 {
+    /// <summary>
+    /// ViewModel pour gérer les prix
+    /// </summary>
     class PriceViewModel
     {
         public List<DAL.DB.Price> Prices { get; set; }
