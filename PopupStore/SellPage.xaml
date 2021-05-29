@@ -10,16 +10,18 @@
 
     <Grid>
         <DockPanel>
-            <GroupBox Header="Ventes" Margin="10" Padding="10" DockPanel.Dock="Top">
-                <WrapPanel>
-                    <WrapPanel.Resources>
-                        <Style TargetType="{x:Type Button}">
-                            <Setter Property="Margin" Value="0,0,0,10"/>
-                            <Setter Property="Padding" Value="5,2,5,2"/>
-                        </Style>
-                    </WrapPanel.Resources>
-                    <Button Click="Delete">Supprimer</Button>
-                    <DataGrid
+            <ScrollViewer>
+                <StackPanel>
+                    <GroupBox Header="Ventes" Margin="10" Padding="10" DockPanel.Dock="Top">
+                        <WrapPanel>
+                            <WrapPanel.Resources>
+                                <Style TargetType="{x:Type Button}">
+                                    <Setter Property="Margin" Value="0,0,0,10"/>
+                                    <Setter Property="Padding" Value="5,2,5,2"/>
+                                </Style>
+                            </WrapPanel.Resources>
+                            <Button Click="Delete">Supprimer</Button>
+                            <DataGrid
                   x:Name="sellDataGrid" 
                   ItemsSource="{Binding Sells}"
                   IsSynchronizedWithCurrentItem="True"
@@ -30,16 +32,16 @@
                   IsReadOnly="True"
                   ScrollViewer.CanContentScroll="True" 
                   ScrollViewer.VerticalScrollBarVisibility="Auto">
-                        <DataGrid.Columns>
-                            <DataGridTextColumn Header="Date" Binding="{Binding Datetime}"/>
-                            <DataGridTextColumn Header="Type de paiement" Binding="{Binding PaymentType}"/>
-                            <DataGridTextColumn Header="Montant total" Binding="{Binding AmountTotal}"/>
-                        </DataGrid.Columns>
-                    </DataGrid>
-                </WrapPanel>
-            </GroupBox>
-            <GroupBox Header="Détail de vente" Margin="10" Padding="10" DockPanel.Dock="Bottom">
-                <DataGrid ItemsSource="{Binding Sells/SellProductRels}"
+                                <DataGrid.Columns>
+                                    <DataGridTextColumn Header="Date" Binding="{Binding Datetime}"/>
+                                    <DataGridTextColumn Header="Type de paiement" Binding="{Binding PaymentType}"/>
+                                    <DataGridTextColumn Header="Montant total" Binding="{Binding AmountTotal}"/>
+                                </DataGrid.Columns>
+                            </DataGrid>
+                        </WrapPanel>
+                    </GroupBox>
+                    <GroupBox Header="Détail de vente" Margin="10" Padding="10" DockPanel.Dock="Bottom">
+                        <DataGrid ItemsSource="{Binding Sells/SellProductRels}"
                           AutoGenerateColumns="False" 
                           CanUserAddRows="False" 
                           ColumnWidth="*" 
@@ -47,13 +49,15 @@
                           HeadersVisibility="Column"
                           ScrollViewer.CanContentScroll="True" 
                           ScrollViewer.VerticalScrollBarVisibility="Auto">
-                    <DataGrid.Columns>
-                        <DataGridTextColumn Header="Produit" Binding="{Binding Product.Name}"/>
-                        <DataGridTextColumn Header="Quantité" Binding="{Binding Quantity}"/>
-                        <DataGridTextColumn Header="Prix unitaire" Binding="{Binding Product.Price.Value}"/>
-                    </DataGrid.Columns>
-                </DataGrid>
-            </GroupBox>
+                            <DataGrid.Columns>
+                                <DataGridTextColumn Header="Produit" Binding="{Binding Product.Name}"/>
+                                <DataGridTextColumn Header="Quantité" Binding="{Binding Quantity}"/>
+                                <DataGridTextColumn Header="Prix unitaire" Binding="{Binding Product.Price.Value}"/>
+                            </DataGrid.Columns>
+                        </DataGrid>
+                    </GroupBox>
+                </StackPanel>
+            </ScrollViewer>
         </DockPanel>
     </Grid>
 </Page>
