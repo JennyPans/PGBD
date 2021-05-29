@@ -9,12 +9,22 @@
       Title="StorePage">
 
     <Grid>
-        <DataGrid ItemsSource="{Binding Store}" AutoGenerateColumns="False" CanUserAddRows="False" ColumnWidth="*">
-            <DataGrid.Columns>
-                <DataGridTextColumn Header="Nom" Binding="{Binding Name}"/>
-                <DataGridTextColumn Header="Date de début" Binding="{Binding PeriodFrom}"/>
-                <DataGridTextColumn Header="Date de fin" Binding="{Binding PeriodTo}"/>
-            </DataGrid.Columns>
-        </DataGrid>
+        <DockPanel>
+            <GroupBox Header="Magasin" Margin="10" Padding="10" DockPanel.Dock="Top">
+                <StackPanel>
+                    <Button Click="Edit" MaxWidth="100" Margin="0 0 0 5" HorizontalAlignment="Left">Editer</Button>
+                    <GroupBox Header="Informations">
+                        <StackPanel>
+                            <Label Content="Nom : "/>
+                            <TextBlock x:Name="name" Text="{Binding Store.Name, Mode=TwoWay, IsAsync=true}"/>
+                            <Label Content="Date de début : "/>
+                            <TextBlock x:Name="date_from" Text="{Binding Store.PeriodFrom, Mode=TwoWay, IsAsync=true}"/>
+                            <Label Content="Date de fin : "/>
+                            <TextBlock x:Name="date_to" Text="{Binding Store.PeriodTo, Mode=TwoWay, IsAsync=true}"/>
+                        </StackPanel>
+                    </GroupBox>
+                </StackPanel>
+            </GroupBox>
+        </DockPanel>
     </Grid>
 </Page>

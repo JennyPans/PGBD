@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace PopupStore.UI.ViewModels
+namespace PopupStore.ViewModels
 {
-    class StoreViewModel
+    class EditStoreViewModel
     {
         public DAL.DB.Store Store { get; set; }
     }

@@ -29,5 +29,13 @@ namespace PopupStore
             };
             this.DataContext = storeViewModel;
         }
+        private void Edit(object sender, RoutedEventArgs e)
+        {
+            if (storeViewModel.Store != null)
+            {
+                EditStore editStore = new EditStore();
+                editStore.Show();
+            }
+        }
     }
 }

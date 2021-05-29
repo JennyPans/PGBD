@@ -72,3 +72,5 @@ C:\Users\jenny\source\repos\PopupStore\PopupStore\obj\Debug\netcoreapp3.1\EditPr
 C:\Users\jenny\source\repos\PopupStore\PopupStore\obj\Debug\netcoreapp3.1\EditPrice.baml
 C:\Users\jenny\source\repos\PopupStore\PopupStore\obj\Debug\netcoreapp3.1\EditProduct.g.cs
 C:\Users\jenny\source\repos\PopupStore\PopupStore\obj\Debug\netcoreapp3.1\EditProduct.baml
+C:\Users\jenny\source\repos\PopupStore\PopupStore\obj\Debug\netcoreapp3.1\EditStore.g.cs
+C:\Users\jenny\source\repos\PopupStore\PopupStore\obj\Debug\netcoreapp3.1\EditStore.baml
